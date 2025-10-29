@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Retirement calculator</title>
+</head>
+<body>
+    <h2>AGE RETIREMENT CALCULATOR</h2>
+
+
+        
+        
+        <label>Current Age:</label><br>
+        <input type="number" id="currentAge" placeholder="e.g. 25"><br>
+        <label>Retirement age:</label><br>
+        <input type="number" id="retireAge" placeholder="e.g. 60"><br>
+        <button onclick="calculateRetirement()">Calculate</button>
+        <p id="result"></p>
+    
+
+    <script>
+    function calculateRetirement() {
+        let currentAge = document.getElementById('currentAge').value;
+        let retireAge = document.getElementById('retireAge').value;
+        let result = document.getElementById('result');
+
+        if (currentAge ==="" || retireAge === "") {
+            result.innerHTML = "Please enter both ages.";
+            console.log("Please enter both ages.");
+            return;
+        }
+
+        currentAge = Number(currentAge);
+        retireAge = Number(retireAge);
+
+        if (currentAge >= retireAge) {
+            result.innerHTML = "Lo retire alaye";
+            console.log("Lo retire alaye ");
+        } else {
+            let yearsLeft = retireAge - currentAge;
+            result.innerHTML = "You have " + yearsLeft + " years left until retirement.";
+            console.log("You have " + yearsLeft + " years left until retirement.");
+        }
+    }
+</script>
+</body>
+</html>

@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Job vacancy</title>
+</head>
+
+<body>
+    <input id="applicantAge" placeholder="which year were you born?"><br><br>
+    <button onclick="applyEngine()">Apply</button>
+
+
+
+
+    <script>
+        let applicantAge =Number (prompt('Your age please?'))
+
+
+        if (applicantAge < 21) {
+            console.log('You should still be in school werey');
+        }
+        else if (applicantAge < 30) {
+            console.log('Apply for graduate trainee');
+        }
+        else if (applicantAge  < 40) {
+            console.log('Apply for branch manager');
+        }
+        else if (applicantAge > 40 < 50){
+            console.log('Apply for branch manager')
+        }
+        // else if (applicantAge > 50){
+        //     console.log('you should be retired by now')
+        // }
+       
+        else {
+            console.log('No work for you')
+        }
+    
+
+
+    </script>
+</body>
+
+</html>

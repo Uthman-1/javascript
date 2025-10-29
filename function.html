@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <h1>Age calculator</h1>
+
+    <input id="userAge" placeholder="which yeaar were you born?"><br><br>
+    <button onclick="agecalcEngine()">Calculate age</button>
+
+    <script>
+        // function aisha() {
+        //     alert('welcome')
+        // }
+
+        // console.log('we are learning function today');
+        // aisha()
+
+
+
+
+        // AGE CALCULATOR
+
+        function aisha(yearofbirth) {
+            let currentYear = new Date().getFullYear();
+            let urage = currentYear - yearofbirth;
+            alert(`you are ${urage} year(s) old`)
+        }
+        function agecalcEngine() {
+            let borneyear = Number(document.getElementById('userAge').value);
+            aisha(borneyear)
+        }
+
+
+
+
+    </script>
+</body>
+
+</html>
