@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Return</title>
+</head>
+
+<body>
+    <input id="userAge" placeholder="your age"><br><br>
+    <button onclick="agecalcEngine()">calculate</button>
+
+
+
+
+
+    <script>
+
+        function entrancepermission() {
+            let age = prompt('what is your age?');
+            if (age >= 18) {
+                return 'access granted'
+            }
+            else {
+                return confirm("do you have your parent's permisson?")
+            }
+        }
+        let userAge = prompt('what is your age?')
+        if (!entrancepermission(userage)) {
+            console.log('access granted')
+        }
+        else {
+            console.log('access denied')
+        } 
+    </script>
+</body>
+
+</html>

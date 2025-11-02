@@ -32,9 +32,8 @@
         let result = document.getElementById('result');
 
         if (currentAge ==="" || retireAge === "") {
-            result.innerHTML = "Please enter both ages.";
             console.log("Please enter both ages.");
-            return;
+            return; 
         }
 
         currentAge = Number(currentAge);
@@ -45,7 +44,7 @@
             console.log("Lo retire alaye ");
         } else {
             let yearsLeft = retireAge - currentAge;
-            result.innerHTML = "You have " + yearsLeft + " years left until retirement.";
+           
             console.log("You have " + yearsLeft + " years left until retirement.");
         }
     }

@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculators</title>
+</head>
+
+<style>
+    body {
+        background-color: #f2f2f2;
+        font-family: Arial, sans-serif;
+        padding: 40px 10px;
+    }
+
+    .calc-container {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 20px;
+    }
+
+    .card {
+        flex: 1 1 300px;
+        max-width: 350px;
+        border-radius: 15px;
+        color: white;
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+    }
+
+    .simple {
+        background: linear-gradient(135deg, #007bff, #00c6ff);
+    }
+
+    .investment {
+        background: linear-gradient(135deg, #28a745, #6edc7b);
+    }
+
+    .retirement {
+        background: linear-gradient(135deg, #ffc107, #ffb347);
+        color: #333;
+    }
+
+    .loan {
+        background: linear-gradient(135deg, #dc3545, #ff6b6b);
+    }
+
+    h4 {
+        text-align: center;
+        margin-bottom: 15px;
+        font-weight: bold;
+    }
+
+    .btn-custom {
+        width: 100%;
+        font-weight: 500;
+        border: none;
+        color: white;
+        transition: 0.3s;
+    }
+
+    .btn-blue {
+        background-color: #0056b3;
+    }
+
+    .btn-blue:hover {
+        background-color: #003d80;
+    }
+
+    .btn-green {
+        background-color: #1e7e34;
+    }
+
+    .btn-green:hover {
+        background-color: #155d26;
+    }
+
+    .btn-yellow {
+        background-color: #e0a800;
+        color: #333;
+    }
+
+    .btn-yellow:hover {
+        background-color: #c69500;
+    }
+
+    .btn-red {
+        background-color: #b52a37;
+    }
+
+    .btn-red:hover {
+        background-color: #931e29;
+    }
+
+    input {
+        border: none;
+        padding: 10px;
+        border-radius: 8px;
+        font-size: 15px;
+        background-color: green;
+        color: yellow;
+    }
+
+    .result {
+        font-weight: bold;
+        font-size: 1.1rem;
+        text-align: center;
+        margin-top: 10px;
+    }
+</style>
+
+<body>
+
+
+    <a href="index.html">about me</a>
+    <a href="history.html">history</a>
+    <a href="agecalculator.html"></a>
+    <a href="all-calc.html"></a>
+
+
+    <div class="container text-center mb-4">
+        <p class="text-muted">Simple • Investment • Retirement • Loan</p>
+    </div>
+
+    <div class="calc-container">
+
+        <div class="card simple p-3">
+            <h4>Simple Calculator</h4>
+            <input type="number" id="num1" class="form-control mb-2" placeholder="Enter first number">
+            <input type="number" id="num2" class="form-control mb-2" placeholder="Enter second number">
+            <div class="d-flex justify-content-between">
+                <button class="btn btn-blue" style="width: 48%;" onclick="calculate('add')">+</button>
+                <button class="btn btn-blue" style="width: 48%;" onclick="calculate('subtract')">−</button>
+            </div>
+            <div class="d-flex justify-content-between mt-2">
+                <button class="btn btn-blue" style="width: 48%;" onclick="calculate('multiply')">×</button>
+                <button class="btn btn-blue" style="width: 48%;" onclick="calculate('divide')">÷</button>
+            </div>
+            <div id="result1" class="result"></div>
+        </div>
+
+        <div class="card investment p-3">
+            <h4>Investment Calculator</h4>
+            <input type="number" id="principal" class="form-control mb-2" placeholder="Initial Amount (₦)">
+            <input type="number" id="rate1" class="form-control mb-2" placeholder="Interest Rate (%)">
+            <input type="number" id="years1" class="form-control mb-2" placeholder="Years">
+            <button class="btn btn-green mt-2" onclick="calculateInvestment()">Calculate</button>
+            <div id="result2" class="result"></div>
+        </div>
+
+        <div class="card retirement p-3">
+            <h4>Retirement Calculator</h4>
+            <input type="number" id="age" class="form-control mb-2" placeholder="Enter your age">
+            <button class="btn btn-yellow mt-2" onclick="checkRetirement()">Check</button>
+            <div id="result3" class="result"></div>
+        </div>
+
+        <div class="card loan p-3">
+            <h4>Loan Calculator</h4>
+            <input type="number" id="amount" class="form-control mb-2" placeholder="Loan Amount (₦)">
+            <input type="number" id="rate2" class="form-control mb-2" placeholder="Interest Rate (%)">
+            <input type="number" id="years2" class="form-control mb-2" placeholder="Years">
+            <button class="btn btn-red mt-2" onclick="calculateLoan()">Calculate</button>
+            <div id="result4" class="result"></div>
+        </div>
+
+    </div>
+
+    <script>
+        function calculate(operation) {
+            let num1 = Number(document.getElementById("num1").value);
+            let num2 = Number(document.getElementById("num2").value);
+            let result = 0;
+            if (operation === "add") result = num1 + num2;
+            else if (operation === "subtract") result = num1 - num2;
+            else if (operation === "multiply") result = num1 * num2;
+            else if (operation === "divide") {
+                if (num2 === 0) {
+                    document.getElementById("result1").innerHTML = "Cannot divide by zero!";
+                    return;
+                }
+                result = num1 / num2;
+            }
+            document.getElementById("result1").innerHTML = "Result: " + result;
+        }
+
+        function calculateInvestment() {
+            var principal = document.getElementById("principal").value;
+            var rate = document.getElementById("rate1").value;
+            var years = document.getElementById("years1").value;
+            if (principal === "" || rate === "" || years === "") {
+                document.getElementById("result2").innerHTML = "Please fill in all fields.";
+                return;
+            }
+            var futureValue = principal * (1 + (rate / 100) * years);
+            document.getElementById("result2").innerHTML = "Future Value: ₦" + futureValue.toFixed(2);
+        }
+
+        function checkRetirement() {
+            var age = document.getElementById("age").value;
+            var retirementAge = 60;
+            var yearsLeft = retirementAge - age;
+            if (age === "" || age < 0) {
+                document.getElementById("result3").innerHTML = "Please enter a valid age.";
+            } else if (age >= retirementAge) {
+                document.getElementById("result3").innerHTML = "You are already eligible for retirement!";
+            } else {
+                document.getElementById("result3").innerHTML = "You have " + yearsLeft + " year(s) left.";
+            }
+        }
+
+        function calculateLoan() {
+            var amount = document.getElementById("amount").value;
+            var rate = document.getElementById("rate2").value;
+            var years = document.getElementById("years2").value;
+            if (amount === "" || rate === "" || years === "") {
+                document.getElementById("result4").innerHTML = "Please fill in all fields.";
+                return;
+            }
+            var interest = (amount * rate * years) / 100;
+            var total = Number(amount) + interest;
+            document.getElementById("result4").innerHTML = "Total to repay: ₦" + total.toFixed(2);
+        }
+    </script>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+
+</html>

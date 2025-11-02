@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Simple calculator</title>
+</head>
+
+<body>
+
+    <form action="calc">
+        <input type="text" id="First No" placeholder="First number"><br><br>
+        <input type="text" id="second No" placeholder="second Number">
+        <span id="my symbol"></span><br><br><br>
+        <input type="text" id="Result " placeholder="Result"><br><br>
+        <button onclick="sumValues() ">+</button>
+    </form>
+
+    <script>
+        function sumValues() {
+            let numberone = document.getElementById("First No").value;
+            let secondone = document.getElementById("second No").value;
+
+
+            let symbol = document.getElementById("my symbol");
+            let myresult = document.getElementById("Result");
+            sumValues()
+        }
+
+
+
+
+    </script>
+
+</body>
+
+</html>
