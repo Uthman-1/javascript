@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Asychronous javascript</title>
+</head>
+<body>
+    
+
+
+    <script>
+        // console.log('start code')
+        // setTimeout(function(){
+        //     console.log('delay a little')
+        // },2000)
+        // console.log('last execution')
+
+
+
+        // fetch('https://rest countries.com/v3.1/all').then(response=>respnse.json().then(data=>{console.log(data);}))
+
+
+        async function getcountries(){
+            const response=await fetch(''); const data=await response.json(); console.log(data)
+        
+
+        constresult=await 
+        response.json();
+        result.data.forEach(x=>{
+            console.log(x.country)
+        });
+    }getcountries()
+
+
+    </script>
+</body>
+</html>

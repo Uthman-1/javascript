@@ -1,0 +1,409 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HOTEL APP</title>
+    <link rel="stylesheet" href="hotel.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css">
+    <link rel="icon" href="1730746869006.jpg" type="image/jpg" />
+</head>
+
+<body id="all">
+    <div id="firstHoteldiv">
+        <div class="d-flex flex-column justify-content-center align-items-center">
+            <p class="firstHotel mb-3 text-center">UTHMAN STAY</p>
+            <h1 class="text-center fw-bold">Accomodations Reservation</h1>
+        </div>
+    </div>
+    <div id="loading1">
+        <div id="allForm">
+            <p class="text-center text-warning fw-bold">loading...</p>
+            <div class="bg-white loading1C" style="width: 100%; max-width: 300px; height: 40px; border-radius: 10px;">
+                <div style="background-color: green;width: 100%; max-width: 100px; height: 40px; border-radius: 10px;">
+                </div>
+            </div>
+        </div>
+    </div>
+    <div id="loading2">
+        <div id="allForm">
+            <p class="text-center text-warning fw-bold">Please Wait...</p>
+            <div class="bg-white loading2C" style="width: 100%; max-width: 300px; height: 40px; border-radius: 10px;">
+                <div
+                    style="background-color: green; width: 100%; max-width: 200px; height: 40px; border-radius: 10px;">
+                </div>
+            </div>
+        </div>
+    </div>
+    <div id="loading3">
+        <div id="allForm">
+            <p class="text-center text-warning fw-bold">Complete </p>
+            <div class="bg-white loading3C" style="width: 100%; max-width: 300px; height: 40px; border-radius: 10px;">
+                <div
+                    style="background-color: green; width: 100%; max-width: 300px; height: 40px; border-radius: 10px;">
+                </div>
+            </div>
+        </div>
+    </div>
+    <div id="hotelForm" class="container">
+        <div class="mt-3">
+            <h1 class="text-center fw-bold" style="color: purple; margin-top: 180px;">WELCOME</h1>
+            <div class="d-flex justify-content-center">
+                <p class="provide text-center mt-3" style="font-weight: 800;">provide your name</p>
+            </div>
+            <label for="" style="color:lemonchiffon; font-weight: 800;" class="mx-5">First name</label><br>
+            <div class="mx-5 mt-4">
+                <input type="text" id="firstName"><br>
+                <p id="error1" style="color: lemonchiffon;"></p>
+            </div>
+            <label for="" class="mt-3 mx-5" style="color: lemonchiffon; font-weight: 800;">Last name</label><br>
+            <div class="mx-5 mt-4">
+                <input type="text" id="lastName">
+                <p id="error2" style="color: lemonchiffon;"></p>
+            </div>
+            <div class="text-center">
+                <button
+                    style="background-color: lemonchiffon; color: brown; font-weight: 800; border: none; padding: 10px 20px;"
+                    class=" rounded mt-5" id="next">
+                    Next
+                </button>
+            </div>
+        </div>
+    </div>
+    <div id="typeOfAccomodation" style="margin: auto;">
+        <div class="d-flex flex-column justify-content-center align-items-center fhc">
+            <p id="userName" class="text-center mt-4 mb-4"></p>
+            <div class="type mt-5">
+                <div class="d-flex flex-column justify-content-center align-items-center p-4">
+                    <h4 class="text-center mb-4" style="font-weight: 800;">Type of Accomodation</h4>
+                    <button id="freeAcc">
+                        Free Accomodation
+                    </button><br>
+                    <button id="hotelAcc">
+                        Hotel Accomodation
+                    </button>
+                </div>
+            </div>
+            <button id="accBack" class="rounded mt-4">
+                back
+            </button>
+        </div>
+    </div>
+    <div id="forFree">
+        <div class="d-flex flex-column justify-content-center align-items-center">
+            <p class="mx-5" id="forFreeC"></p>
+            <button id="returnToHome">
+                back
+            </button>
+        </div>
+    </div>
+    <div id="forHotel" style="margin: auto;">
+        <div class="d-flex flex-column justify-content-center align-items-center fhc">
+            <p id="forHotelContent1" class="mt-4 text-center"></p>
+            <div class="forHotelContent2 mt-5">
+                <p style="font-size: 28px;" class="text-center">How long Will You be Staying with Us?</p>
+                <p>please let us know the duration of your stay so we can serve you better</p>
+                <div id="forHotelContent3">
+                    <input type="date" id="duration" class="mx-3 my-3 rounded date">
+                    <button id="dateButton">choose</button>
+                </div>
+                <p id="myPara" class="text-center rounded"></p>
+            </div>
+            <div class="text-center mt-5 gap-3">
+                <button id="daysNext" class="rounded">
+                    Next
+                </button>
+                <button id="daysBack" class="rounded">
+                    Back
+                </button>
+            </div>
+        </div>
+    </div>
+    <div id="typeOfRoom" style="margin: auto;">
+        <div class="d-flex flex-column justify-content-center align-items-center tor" style="margin-top: 50px;">
+            <p id="userNameRoom" class="text-center rounded mt-3"></p>
+            <div class="allRoom rounded mt-3 d-flex flex-column justify-content-center align-items-center gap-3">
+                <p class="mt-1 mb-3 pt-1" style="font-size:20px;">Select Room Type</p>
+                <button class="rounded mx-auto" id="oldbuilding">old building suite-#11,500</button>
+                <button class="rounded mx-auto" id="standard">standard suite-#25,700</button>
+                <button class="rounded mx-auto" id="Supreme">Supreme suite-#48,000</button>
+                <button class="rounded mx-auto" id="Presidential">Presidential suite-#96,100</button>
+                     <button class="rounded mx-auto" id="A1">A1 suite-#150,000</button>
+            </div>
+            <p style="color: lemonchiffon; font-size: 28px; font-weight: 800; margin-top: 20px;" id="daysMany"></p>
+            <div class="howMany rounded">
+                <p id="howDays" class="text-center mt-3"></p>
+            </div>
+            <button id="roomBack" class="mt-3 rounded">
+                back
+            </button>
+        </div>
+    </div>
+    <div id="StandardRoom" style="margin: auto;">
+        <div class="text-center d-flex flex-column justify-content-center align-items-center strc">
+            <div id="StandardRoomC" style="color: lemonchiffon;">
+
+            </div>
+            <div class="mt-3">
+                <button id="cancel" class="mx-3">
+                    Cancel
+                </button>
+                <button id="Continue" class="mx-3">
+                    Continue
+                </button>
+            </div>
+        </div>
+
+    </div>
+    <div id="ContinueSt" style="margin: auto;">
+        <div class="continuecontent d-flex flex-column justify-content-center align-items-center">
+
+            <p id="ContinueStContent" style="color: lemonchiffon; font-weight: 700;" class="mx-3 text-center">
+
+            </p>
+        </div>
+    </div>
+    <div id="EmeraldRoom" style="margin: auto;">
+        <div class="text-center d-flex flex-column justify-content-center align-items-center erc">
+
+            <div id="EmeraldRoomC" style="color:lemonchiffon;">
+
+            </div>
+            <div class="mt-3">
+                <button id="cancelEmerald" class="mx-3">
+                    Cancel
+                </button>
+                <button id="ContinueEmerald" class="mx-3">
+                    Continue
+                </button>
+            </div>
+        </div>
+
+    </div>
+    <div id="ContinueEmeraldC" style="margin: auto;">
+        <div class="Emeraldcontent d-flex flex-column justify-content-center align-items-center">
+            <p id="ContinueEmeraldContent" style="color: lemonchiffon; font-weight: 700;" class="mx-3 text-center">
+
+            </p>
+        </div>
+    </div>
+    <div id="SupremeRoom" style="margin: auto;">
+        <div class="text-center d-flex flex-column justify-content-center align-items-center src">
+            <div id="SupremeRoomC" style="color: lemonchiffon;">
+
+            </div>
+            <div class="mt-3">
+                <button id="cancelSupreme" class="mx-3">
+                    Cancel
+                </button>
+                <button id="continueSupreme" class="mx-3">
+                    Continue
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <div id="ContinueSupremeC" style="margin: auto;">
+        <div class="Supremecontent d-flex flex-column justify-content-center align-items-center">
+            <p id="ContinueSupremeContent" style="color: lemonchiffon; font-weight: 700;" class="mx-3 text-center">
+
+            </p>
+        </div>
+    </div>
+    <div id="PresidentialRoom" style="margin: auto;">
+        <div class="text-center d-flex flex-column justify-content-center align-items-center prc">
+            <div id="PresidentialRoomC" style="color: lemonchiffon;" class="mx-3 text-center">
+
+            </div>
+            <div class="mt-3">
+                <button id="cancelPresidential" class="mx-3">
+                    Cancel
+                </button>
+                <button id="continuePresidential" class="mx-3">
+                    Continue
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <div id="ContinuePresidentialC" style="margin: auto;">
+        <div class="Presidentialcontent d-flex flex-column justify-content-center align-items-center">
+            <p id="ContinuePresidentialContent" style="color: lemonchiffon; font-weight: 700;" class="mx-3 text-center">
+
+            </p>
+        </div>
+    </div>
+</body>
+
+
+<script>
+    // ================= GLOBAL VARIABLES =================
+let fName = "";
+let lName = "";
+let stayDate = "";
+let roomName = "";
+let roomPrice = 0;
+
+// ================= PAGE SECTIONS =================
+const sections = [
+    "hotelForm",
+    "typeOfAccomodation",
+    "forFree",
+    "forHotel",
+    "typeOfRoom"
+];
+
+// ================= HIDE ALL SECTIONS =================
+function hideAll() {
+    for (let i = 0; i < sections.length; i++) {
+        document.getElementById(sections[i]).style.display = "none";
+    }
+}
+
+// ================= INITIAL VIEW =================
+hideAll();
+document.getElementById("hotelForm").style.display = "block";
+
+// ================= NAME PAGE =================
+document.getElementById("next").addEventListener("click", () => {
+    fName = document.getElementById("firstName").value.trim();
+    lName = document.getElementById("lastName").value.trim();
+
+    if (fName === "") {
+        document.getElementById("error1").innerText = "First name required";
+        return;
+    } else {
+        document.getElementById("error1").innerText = "";
+    }
+
+    if (lName === "") {
+        document.getElementById("error2").innerText = "Last name required";
+        return;
+    } else {
+        document.getElementById("error2").innerText = "";
+    }
+
+    hideAll();
+    document.getElementById("typeOfAccomodation").style.display = "block";
+    document.getElementById("userName").innerText = `Welcome ${fName} ${lName}`;
+});
+
+// ================= FREE ACCOMMODATION =================
+document.getElementById("freeAcc").addEventListener("click", () => {
+    hideAll();
+    document.getElementById("forFree").style.display = "block";
+    document.getElementById("forFreeC").innerText =
+        `${fName}, free accommodation is currently unavailable.`;
+});
+
+document.getElementById("returnToHome").addEventListener("click", () => {
+    hideAll();
+    document.getElementById("typeOfAccomodation").style.display = "block";
+});
+
+// ================= HOTEL ACCOMMODATION =================
+document.getElementById("hotelAcc").addEventListener("click", () => {
+    hideAll();
+    document.getElementById("forHotel").style.display = "block";
+});
+
+// ================= DATE SELECTION =================
+document.getElementById("dateButton").addEventListener("click", () => {
+    stayDate = document.getElementById("duration").value;
+
+    if (stayDate === "") {
+        document.getElementById("myPara").innerText = "Please select a date";
+    } else {
+        document.getElementById("myPara").innerText =
+            `You selected ${stayDate} as your check-in date`;
+    }
+});
+
+document.getElementById("daysNext").addEventListener("click", () => {
+    if (stayDate === "") {
+        alert("Please choose a date first");
+        return;
+    }
+    hideAll();
+    document.getElementById("typeOfRoom").style.display = "block";
+    document.getElementById("daysMany").innerText = "Staying for 1 day";
+});
+
+document.getElementById("daysBack").addEventListener("click", () => {
+    hideAll();
+    document.getElementById("typeOfAccomodation").style.display = "block";
+});
+
+// ================= ROOM SELECTION =================
+const roomButtons = document.getElementsByClassName("allRoom")[0].getElementsByTagName("button");
+
+for (let i = 0; i < roomButtons.length; i++) {
+    roomButtons[i].addEventListener("click", () => {
+        if (roomButtons[i].id === "standard") {
+            roomName = "Standard Suite";
+            roomPrice = 25700;
+        } else if (roomButtons[i].id === "Supreme") {
+            roomName = "Supreme Suite";
+            roomPrice = 48000;
+        } else if (roomButtons[i].id === "Presidential") {
+            roomName = "Presidential Suite";
+            roomPrice = 96100;
+        } else if (roomButtons[i].id === "A1") {
+            roomName = "A1 Suite";
+            roomPrice = 150000;
+        } else {
+            roomName = "Old Building Suite";
+            roomPrice = 11500;
+        }
+
+        showSummary();
+    });
+}
+
+// ================= SUMMARY =================
+function showSummary() {
+    hideAll();
+
+    const summary = document.createElement("div");
+    summary.style.color = "lemonchiffon";
+    summary.style.textAlign = "center";
+    summary.style.marginTop = "50px";
+
+    summary.innerHTML = `
+        <h2>Reservation Successful ✅</h2>
+        <p>Name: ${fName} ${lName}</p>
+        <p>Room: ${roomName}</p>
+        <p>Price: ₦${roomPrice}</p>
+        <p>Date: ${stayDate}</p>
+    `;
+
+    document.body.appendChild(summary);
+
+    saveData();
+}
+
+// ================= FETCH (SAVE DATA) =================
+function saveData() {
+    fetch("https://jsonplaceholder.typicode.com/posts", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+            name: `${fName} ${lName}`,
+            room: roomName,
+            price: roomPrice,
+            date: stayDate
+        })
+    })
+        .then(res => res.json())
+        .then(data => console.log("Saved:", data))
+        .catch(err => console.log(err));
+}
+</script>
+<script src="hotel.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-ndDqU0Gzau9qJ1lfW4pNLlhNTkCfHzAVBReH9diLvGRem5+R9g2FzA8ZGN954O5Q"
+    crossorigin="anonymous"></script>
+
+</html>

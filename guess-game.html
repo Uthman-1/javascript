@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    <h1 id="startguessing">START CHOOSING....</h1>
+    <input id="myguess" placeholder="PLEASE ENTER A NUMBER BTW 1 AND 20">
+    <button id="myguessbtn">check</button>
+    <h3 id="result"></h3>
+    <h2 id="myscore"></h2>
+    <h1 id="myhighestscore"></h1>
+
+
+    <script>
+        let myguess= document.getElementById('myguess').value;
+        let startguessing= document.getElementById('startguessing')
+        let myguessbtn= document.getElementById('myguessbtn')
+        let myresult= document.getElementById('result')
+        let myscore= document.getElementById('myscore')
+        let myhighestscore= document.getElementById('myhighestscore')
+
+            let mysecretNumber= Math.trunc((Math.random()*20)+1);
+            console.log(mysecretNumber)
+
+            function deleteunwantedvalue(){
+                document.getElementById('myguess').value;
+                document.getElementById('myguess').focus();
+            }
+            
+            function guessengine(){
+            let myguess= number(document.getElementById('myguess').value);
+            if (myguess==""){
+                result.innerHTML='you have to type a number'
+                result.style.Color='red'
+            }
+            else if(myguess>1 || myguess>20){
+                result.innerHTML='your number should not be greater than 20 and less than 1'
+                 result.style.Color='red'
+            }
+            else if(isNaN(myguess)){
+                result.innerHTML='you have to input a number'
+                 result.style.Color='red'
+            }
+            else if(myguess>mysecretNumber){
+                result.innerHTML='your result is too low'
+                 result.style.Color='orange'
+            }
+             else if(myguess<mysecretNumber){
+                result.innerHTML='your result is too high'
+                 result.style.Color='green'
+            }
+            else{
+                result.innerHTML=`correct number is ${mysecretNumber}`
+                let body=document.querySelector('body')
+                body.style.background='black'
+                body.style.Color='white'
+            }
+            }
+            myguessbtn.addEventListener('click', guessengine)
+
+
+
+    </script>
+</body>
+</html>

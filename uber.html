@@ -1,0 +1,433 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Js for uber Application Assignment</title>
+  <link rel="stylesheet" href="uberapp.css">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css">
+  <link rel="icon" href="1730746869006.jpg" type="image/jpg" />
+</head>
+
+<style>
+  * {
+    box-sizing: border-box;
+    font-family: "Segoe UI", sans-serif;
+  }
+
+  body {
+    background: #f5f5f5;
+    padding-top: 90px;
+  }
+
+  .ground {
+    background-color: red;
+  }
+
+  .firstUberdiv {
+    background: black;
+    padding: 15px;
+    text-align: center;
+  }
+
+  .firstUber {
+    color: white;
+    font-size: 26px;
+    font-weight: bold;
+    letter-spacing: 1px;
+  }
+
+  .allForm {
+    background: white;
+    padding: 30px;
+    border-radius: 12px;
+    max-width: 450px;
+    margin: auto;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+  }
+
+  .uber {
+    color: black;
+    font-weight: bold;
+  }
+
+  input {
+    width: 100%;
+    padding: 12px;
+    border-radius: 8px;
+    border: 1px solid #ccc;
+    outline: none;
+  }
+
+  input:focus {
+    border-color: black;
+  }
+
+  #error1,
+  #error2 {
+    color: red;
+    font-size: 14px;
+  }
+
+  button {
+    padding: 10px 22px;
+    border-radius: 30px;
+    border: none;
+    cursor: pointer;
+    font-weight: bold;
+    transition: 0.3s;
+  }
+
+  #startRide,
+  #start {
+    background: black;
+    color: white;
+  }
+
+  #startRide:hover,
+  #start:hover {
+    background: #333;
+  }
+
+  #back {
+    background: #ddd;
+  }
+
+  #pause {
+    background: orange;
+    color: white;
+  }
+
+  #stop,
+  #yes {
+    background: red;
+    color: white;
+  }
+
+  #no {
+    background: green;
+    color: white;
+  }
+
+  #startCount {
+    margin-top: 120px;
+  }
+
+  .book {
+    background-color: limegreen;
+  }
+
+  .confirmALl {
+    background: white;
+    padding: 30px;
+    border-radius: 12px;
+    max-width: 500px;
+    margin: auto;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+  }
+
+  #counting {
+    margin-top: 120px;
+  }
+
+  #timer {
+    font-size: 18px;
+    font-weight: 500;
+  }
+
+
+  #paused {
+    margin-top: 140px;
+  }
+
+  #pausedPara {
+    font-size: 18px;
+    font-weight: bold;
+  }
+
+  #stoppedNo {
+    margin-top: 60px;
+  }
+
+  .rideEnded h1 {
+    color: green;
+    font-weight: bold;
+  }
+
+  .container h3 {
+    font-size: 18px;
+  }
+</style>
+
+<body id="all">
+  <button class="navbar-toggler d-lg-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#mobileMenu">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+
+  </div>
+  <div class="firstUberdiv" id="firstUberdivJs">
+    <p class="firstUber">Uber</p>
+  </div>
+
+  <div id="formUber" class="container ">
+    <div class="allForm book">
+      <div style="padding: 0px;">
+        <h1 class="uber"><b>UBER</b></h1>
+        <h3 class="mt-0" style="color: coral;">Book a ride now</h3>
+        <label for="" class="mb-2"><b>From :</b></label><br>
+        <input type="text" id="from" class="mb-4"><br>
+        <p id="error1"></p>
+        <label for="" class="mb-2"><b>To :</b></label><br>
+        <input type="text" id="to">
+        <p id="error2"></p>
+        <div class="text-center mt-0 startme">
+          <button id="startRide" style="color:indigo;">
+            Start Ride
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div id="startCount">
+    <div class="confirmALl">
+
+      <p id="confirm" class="text-center"></p>
+      <div class="d-flex justify-content-center gap-4">
+        <button id="back" style="background-color: blue; color: red;">
+          back
+        </button>
+        <button id="start" style="background-color: blue; color: red;">
+          start
+        </button>
+      </div>
+    </div>
+  </div>
+  <div id="counting">
+    <div class="gap-0 ">
+      <p id="timer" class="text-center mt-0" style="color: red;">Ride in progress 00:00:00 you are now moving from your
+        location to your
+        destination</p>
+    </div>
+    <div class="d-flex justify-content-center gap-4">
+      <button id="pause">
+        pause
+      </button>
+      <button id="stop">
+        stop ride
+      </button>
+    </div>
+  </div>
+  <div id="paused">
+    <p id="pausedPara" class="text-white text-center"></p>
+    <div class="d-flex justify-content-center gap-4">
+      <button id="yes">
+        Yes
+      </button>
+      <button id="no">
+        No
+      </button>
+    </div>
+  </div>
+  <div id="stoppedNo">
+    <div class="p-4" style="margin-top: 80px;">
+      <div class="text-center rideEnded">
+        <h1 id="ridEnded" class="p-2"></h1>
+      </div>
+    </div>
+    <div class="d-flex justify-content-center align-items-center">
+
+      <div class="container ground">
+        <div class="d-flex justify-content-between p-1">
+          <h3>Transport Fare=</h3>
+          <h3 id="baseFare"></h3>
+        </div>
+        <b>
+          <hr style="color: black;">
+        </b>
+        <div class="d-flex justify-content-between p-1">
+          <h3>Time:</h3>
+          <h3 id="timeTaken"></h3>
+        </div>
+        <hr style="color: black;">
+        <div class="d-flex justify-content-between p-1">
+          <h3>Timefare=</h3>
+          <h3 id="timeFare"></h3>
+        </div>
+        <hr style="color: black;">
+        <div class="d-flex justify-content-between p-1">
+          <h3>Inital=</h3>
+          <h3 id="initalTotal"></h3>
+        </div>
+        <hr style="color: black;">
+        <div class="d-flex justify-content-between p-1">
+          <h3>Tax/10%=</h3>
+          <h3 id="taxPercent"></h3>
+        </div>
+        <hr style="color: black;">
+        <div class="d-flex justify-content-between p-1">
+          <h3>Amount in Total=</h3>
+          <h3 id="totalAmount"></h3>
+        </div>
+        <hr style="color: black;">
+      </div>
+    </div>
+  </div>
+</body>
+
+
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+    const fromInput = document.getElementById("from");
+    const toInput = document.getElementById("to");
+    const startRideBtn = document.getElementById("startRide");
+
+    const error1 = document.getElementById("error1");
+    const error2 = document.getElementById("error2");
+
+    const formUber = document.getElementById("formUber");
+    const startCount = document.getElementById("startCount");
+    const counting = document.getElementById("counting");
+    const paused = document.getElementById("paused");
+    const stoppedNo = document.getElementById("stoppedNo");
+
+    const confirmText = document.getElementById("confirm");
+    const backBtn = document.getElementById("back");
+    const startBtn = document.getElementById("start");
+
+    const timerEl = document.getElementById("timer");
+    const pauseBtn = document.getElementById("pause");
+    const stopBtn = document.getElementById("stop");
+
+    const yesBtn = document.getElementById("yes");
+    const noBtn = document.getElementById("no");
+    const pausedPara = document.getElementById("pausedPara");
+
+    const baseFareEl = document.getElementById("baseFare");
+    const timeTakenEl = document.getElementById("timeTaken");
+    const timeFareEl = document.getElementById("timeFare");
+    const initialTotalEl = document.getElementById("initalTotal");
+    const taxPercentEl = document.getElementById("taxPercent");
+    const totalAmountEl = document.getElementById("totalAmount");
+    const rideEndedEl = document.getElementById("ridEnded");
+
+
+    let seconds = 0;
+    let minutes = 0;
+    let hours = 0;
+    let timer = null;
+
+    const BASE_FARE = 1000;
+    const RATE_PER_MIN = 100;
+
+    startCount.style.display = "none";
+    counting.style.display = "none";
+    paused.style.display = "none";
+    stoppedNo.style.display = "none";
+
+    function formatTime() {
+      return `${String(hours).padStart(2, "0")}:${String(minutes).padStart(2, "0")}:${String(seconds).padStart(2, "0")}`;
+    }
+
+    function startTimer() {
+      timer = setInterval(() => {
+        seconds++;
+
+        if (seconds === 60) {
+          seconds = 0;
+          minutes++;
+        }
+        if (minutes === 60) {
+          minutes = 0;
+          hours++;
+        }
+
+        timerEl.textContent = `Ride in progress ${formatTime()} you are now moving from your location to your destination`;
+      }, 1000);
+    }
+
+    function stopTimer() {
+      clearInterval(timer);
+    }
+
+    function calculateFare() {
+      const totalMinutes = hours * 60 + minutes;
+      const timeFare = totalMinutes * RATE_PER_MIN;
+      const initialTotal = BASE_FARE + timeFare;
+      const tax = initialTotal * 0.1;
+      const total = initialTotal + tax;
+
+      baseFareEl.textContent = `₦${BASE_FARE}`;
+      timeTakenEl.textContent = formatTime();
+      timeFareEl.textContent = `₦${timeFare}`;
+      initialTotalEl.textContent = `₦${initialTotal}`;
+      taxPercentEl.textContent = `₦${tax}`;
+      totalAmountEl.textContent = `₦${total}`;
+    }
+
+
+    startRideBtn.addEventListener("click", () => {
+      error1.textContent = "";
+      error2.textContent = "";
+
+      if (fromInput.value.trim() === "") {
+        error1.textContent = "Please select starting location";
+        return;
+      }
+
+      if (toInput.value.trim() === "") {
+        error2.textContent = "Please select destination";
+        return;
+      }
+
+      formUber.style.display = "none";
+      startCount.style.display = "block";
+      confirmText.textContent = `Confirm ride from ${fromInput.value} to ${toInput.value}`;
+    });
+
+    backBtn.addEventListener("click", () => {
+      startCount.style.display = "none";
+      formUber.style.display = "block";
+    });
+
+    startBtn.addEventListener("click", () => {
+      startCount.style.display = "none";
+      counting.style.display = "block";
+      startTimer();
+    });
+
+    pauseBtn.addEventListener("click", () => {
+      stopTimer();
+      counting.style.display = "none";
+      paused.style.display = "block";
+      pausedPara.textContent = "Do you want to stop this ride?";
+    });
+
+    noBtn.addEventListener("click", () => {
+      paused.style.display = "none";
+      counting.style.display = "block";
+      startTimer();
+    });
+
+    yesBtn.addEventListener("click", () => {
+      stopTimer();
+      paused.style.display = "none";
+      stoppedNo.style.display = "block";
+      rideEndedEl.textContent = "Ride Completed";
+      calculateFare();
+    });
+
+    stopBtn.addEventListener("click", () => {
+      stopTimer();
+      counting.style.display = "none";
+      stoppedNo.style.display = "block";
+      rideEndedEl.textContent = "Ride Completed";
+      calculateFare();
+    });
+
+  });
+
+</script>
+</html>

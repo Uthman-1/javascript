@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width= device-width , initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+</head>
+
+<style>
+    i {
+        font-size: 78px;
+        margin-left: 300px;
+        color: red;
+    }
+</style>
+
+<body>
+    <i id="charge" class="fa fa-battery-charging" style="font-size: 72px;"></i>
+
+
+    <script>
+        function chargebattery() {
+            let mybattery = document.getElementById('charge')
+            mybattery.innerHTML = '&#xf244;';
+            setTimeout(function () {
+                mybattery.innerHTML = '&#xf243;';
+            }, 1000);
+            setTimeout(function () {
+                mybattery.innerHTML = '&#xf242;';
+            }, 2000)
+            setTimeout(function () {
+                mybattery.innerHTML = '&#xf241;';
+            }, 3000)
+            setTimeout(function () {
+                mybattery.innerHTML = '&#xf240;';
+            },4000)
+        } chargebattery();
+        setInterval(chargebattery, 5000)
+
+
+
+
+
+
+
+
+    </script>
+
+
+
+
+
+
+
+
+</body>
+
+</html>

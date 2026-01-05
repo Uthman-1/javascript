@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <h1>Form Validation</h1>
+    <label>First name<span style="color: red;">*</span><br>
+        <input type="text" name="First-Name" id="Firstname" placeholder="First Name">
+    </label><br><br>
+    <label>Second name <span style="color: red;">*</span><br>
+        <input type="text" name="Second name" id="second name" placeholder="Second Name">
+    </label><br><br>
+    <label>Phone number <span style="color: red;">*</span><br>
+        <input type="text" name="Phone number" id="phone" placeholder="Phone number">
+    </label><br><br>
+    <label>Zip code <span style="color: red;">*</span><br>
+        <input type="text" name="zip code" id="zip code" placeholder="Zip code">
+    </label><br><br><br>
+    <button style="background-color: red; color: white; padding: 10px;">Restart</button>
+    <button style="background-color: red; color: white; padding: 10px;">Submit</button>
+
+
+
+
+
+
+
+
+
+    <script>
+        // let a = new Date(`Jan 2, 1970 00:00:00`).getTime()
+        // console.log(a)
+        // let x=0
+        // setTimeout(function(){
+        //     console.log(`x++`)
+
+        // },2000)
+
+
+        // function sayHi(phrase, who){
+        //     console.log(phrase, who)
+        // }
+
+        // setTimeout (sayHi, 2000, `Hello`, `John`)
+
+
+
+        // let timeId= setInterval(function(){
+        //     console.log (`tick`)
+        //     3,2000
+        // })
+
+
+
+        // function printNumber(from, to){
+        //     let current=from;
+        //     function go(){
+        //         alert(current)
+        //         if (current===to){
+        //             clearInterval(x)
+        //         }
+        //         current++
+        //     }
+        //      go()
+        // let x=setInterval(go,1000)
+        // } printNumber(1,10)
+
+
+        let christmas = new Date(`Dec 25, 2025, 00:00:00`).getTime();
+        function countdown(){
+            let currentTime = new Date().getTime()
+            let distance = christmas - currentTime;
+            console.log(distance)
+        }
+        setInterval(countdown, 1000)
+
+    </script>
+</body>
+
+</html>

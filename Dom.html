@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <ul id="mydiv"></ul>
+    <input type="text" id="myitem" style="padding: 40px; color: red; border-color: green;"><br><br>
+    <button onclick="additem()">ADD</button>
+    
+    
+    <!-- <p class="greet">welcome</p>
+    <p class="greet">To js</p>
+    <p class="greet">lecture</p> -->
+
+    <!-- <div>
+        <p id="james">WELCOME</p>
+        <p id="john"> TO JS CLASS</p>
+    </div> -->
+
+    <ul>
+        <li>fruit <span class="close">&close;</span></li>
+        <li>wine <span class="close">&close;</span></li>
+    </ul>
+
+    <script>
+
+        let d=document.getElementsByClassName('close');
+        for (let i=0; i<d.length; i++){
+            d[i].onclick=function(){
+                this.parentNode.style.display='none';
+            }
+        }
+        
+
+
+                    // THIS.PARENTNODE
+        // let k = document.querySelector('#james');
+        // k.onclick=
+        // function(){
+        //     this.parentElement.style.color='red';
+        // }
+
+
+
+
+            // GET ElementBYCLASSNAME
+        // let j= document.getElementsByClassName('greet')
+        //     j[1].style.color='red'
+
+
+
+
+
+// function additem(){
+//     let a = document.createElement('li');
+//     let b = document.getElementById('myitem').value;
+//     let c = document.createTextNode(b);
+//     a.appendChild(c)
+//     document.getElementById('mydiv').appendChild(a)
+    
+//     let d =document.getElementById('mydiv');
+//     d.insertBefore(a, d.childNodes[21]);
+// }
+
+
+// function additem(){
+//                     let a= document.createElement('li');
+//                     a.innerHTML='rice';
+//                     let b=document.getElementById('mydiv');
+//                     b.appendChild(a)
+//                 }
+
+
+
+        // let aboutme={
+            //     surname: 'oyesiji',
+            //     firstname: 'Uthman',
+            //     Age:24,
+            //     Black:'True',  
+            //     Role:'programmer',
+            //     Fullname:function(){
+                //         return `${this.surname} ${this.firstname}`
+                //    }
+                // }
+                //  console.log(aboutme.Fullname())
+                
+
+                
+                
+                
+                // function additem(){
+                //     let a= document.createElement('li');
+                //     a.innerHTML='rice';
+                //     let b=document.getElementById('mydiv');
+                //     b.appendChild(a)
+                // }
+
+
+</script>
+</body>
+</html>

@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1 id="counter"></h1>
+    <h2>lOOP</h2>
+
+
+
+    <script>
+
+        let weekday=['sunday','Monday', 'Tuesday','wednesday','thursaday','friday','saturday']
+
+        let currenthour= new Date().getHours()
+        let currentday= new Date().getDay()
+
+
+       
+            let mysession;
+            if ((currenthour<12)){
+                mysession='Good morning'
+            }
+            else if(currenthour>=12){
+                mysession='Good Afternoon'
+            }
+            else {
+                mysession='Good Evening'
+            }
+
+            if (currentday==0){
+                console.log(`Good ${mysession}, Happy Sunday!!`);
+            }
+            else if (currentday==5){
+                console.log(`Good ${mysession}today is friday`);
+            }
+            else if(currentday==6){
+                console.log(`Good ${mysession}, today is saturday, we are going for an event`);
+            }
+            else{
+                console.log(`Good ${mysession} Today is ${weekday[currentday]}, Get up and go to work!!` );
+            }
+            
+
+
+            console.log(`Day ${i+1}:  ${weekday[i]}` )
+        
+    </script>
+</body>
+</html>

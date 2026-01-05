@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+
+<body>
+    <div class="stop">
+    <h1 class="'counter" style="margin-left:300px">
+
+            <span id="min">00</span>
+
+            <span id="colm">:</span>
+
+            <span id="secs">00</span>
+
+        </h1>
+
+
+
+        <button id="start" style="margin-left:330px" onclick="startcount()">start</button>
+
+        <button id="pause" style="margin-left:300px" onclick="pausecount()" class="inihide">pause</button>
+            <button id="cont" style="margin-left:300px" onclick="contcount()" class="inihide">countinue</button>
+
+
+        <button id="stop" style="margin-left:0px" onclick="stopcount()" class="inihide">stop</button>
+        <button id="reset" style="margin-left:0px" onclick="resetcount()" class="inihide">reset</button>
+
+        </div>
+
+
+
+
+        
+
+        <style>
+
+            .inihide{
+
+                display:none;
+
+            }
+/* 
+            button{
+                background-color: red;
+                color: white;
+                padding: 10px;
+                border-radius: 50px;
+            }
+            .stop{
+                background-color:brown;
+                padding: 50px;
+                border: none;
+                border-radius: 90px;
+                width: 500px;
+
+            } */
+
+        </style>
+
+
+
+    <script>
+
+        let mymin = document.getElementById('min');
+
+        let mysec = document.getElementById('secs');
+
+        let count= 0;
+
+        let k;
+
+        function countengine(){
+
+            ++count;
+
+            let mm= parseInt(count/60);
+
+            let ss = count%60;
+
+
+
+            mm=(mm<10)? '0'+mm:mm
+
+            ss=(ss<10)? '0'+ss:ss
+
+            mymin.innerHTML=mm;
+
+            mysec.innerHTML =ss
+
+        }
+
+
+
+        let startbtn=document.getElementById('start');
+
+        let pausebtn=document.getElementById('pause')
+
+        let stopbtn=document.getElementById('stop')
+        let resetbtn=document.getElementById('reset')
+         let contbtn=document.getElementById('cont')
+
+        function startcount(){
+
+             k= setInterval(countengine, 1000);
+
+             startbtn.style.display='none';
+
+             pausebtn.style.display='inline-block';
+
+             stopbtn.style.display='inline-block';
+
+
+
+        }
+
+
+
+        function pausecount(){
+
+             clearInterval(k);
+
+             pausebtn.style.diplay='none';
+
+             contbtn.style.display='inline-block';
+
+            //  stopbtn.style.display='inline-block';
+
+
+
+        }
+
+         function contcount(){
+
+            k= setInterval(countengine, 1000);
+
+             startbtn.style.display='none';
+
+             pausebtn.style.display='inline-block';
+
+             stopbtn.style.display='inline-block';
+
+        }
+
+
+
+
+        function stopcount(){
+
+             clearInterval(k);
+             stopbtn.style.display='none'
+             resetbtn.style.display='inline-block';
+             contbtn.style.display='none';
+        }
+
+         function resetcount(){
+
+            let count= 0;
+            mymin.innerHTML='00';
+            mysec.innerHTML='00';
+            resetbtn.style.display='none';
+            startbtn.style.display='inline-block';
+        }
+        </script>
+</body>
+</html>

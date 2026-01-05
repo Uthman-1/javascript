@@ -14,7 +14,7 @@
         <input type="text" id="second No" placeholder="second Number">
         <span id="my symbol"></span><br><br><br>
         <input type="text" id="Result " placeholder="Result"><br><br>
-        <button onclick="sumValues() ">+</button>
+        <button>+</button>
     </form>
 
     <script>
@@ -25,8 +25,9 @@
 
             let symbol = document.getElementById("my symbol");
             let myresult = document.getElementById("Result");
-            sumValues()
+            
         }
+        .addEventListener(click, sumValues )
 
 
 

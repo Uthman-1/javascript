@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <img id="myimg" src="car.png" alt="car-logo">
+
+    <button id="start" onclick="startcount()">Start</button>
+    <button id="pause" onclick="pausecount()" class="inihide">Pause</button>
+    <button id="continue" onclick="continuecount()" class="inihide">Continue</button>
+    <button id="stop" onclick="stopcount()" class="inihide">Stop</button>
+
+    <script>
+
+        
+        let img=document.getElementById('myimg')
+
+        let setInterval(`car,1000`)
+    
+        let movement= 0;
+        function car(){
+            movement++
+            img.style.left= movement+'px'
+        } btn.onclick= clearInterval
+
+
+        
+        let startbtn = document.getElementById('start');
+        let pausebtn = document.getElementById('pause');
+        let contbtn = document.getElementById('continue');
+        let stopbtn = document.getElementById('stop');
+
+
+
+    </script>
+
+</body>
+
+</html>

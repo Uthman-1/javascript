@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Animation</title>
+
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 50px;
+        }
+
+        .main-stuff {
+            background-color: red;
+            padding: 20px;
+            border-radius: 20px;
+            width: 1000px;
+            height: 300px;
+            box-shadow: 10px 10px 20px gray;
+        }
+
+        #myimg {
+            position: relative;
+            left: 0px;
+            width: 120px;
+        }
+
+        h1 {
+            text-align: center;
+            color: white;
+            font-size: 40px;
+            margin-bottom: 20px;
+        }
+
+        .btns {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .btns button {
+            margin: 0 10px;
+            border: none;
+            width: 100px;
+            height: 40px;
+            border-radius: 10px;
+            color: black;
+            font-size: 16px;
+        }
+
+        .hide {
+            display: none;
+        }
+    </style>
+
+</head>
+
+<body>
+
+    <div class="main-stuff">
+        <h1>Animation</h1>
+
+        <div style="display:flex; justify-content:center;">
+            <img id="myimg" src="car.png">
+        </div>
+
+        <br>
+
+        <div class="btns">
+            <button id="start" onclick="startAnim()">Start</button>
+            <button id="pause" onclick="pauseAnim()" class="hide">Pause</button>
+            <button id="continue" onclick="continueAnim()" class="hide">Continue</button>
+            <button id="stop" onclick="stopAnim()" class="hide=">Stop</button>
+            <button id="reset" onclick="resetAnim()" class="hide">Reset</button>
+        </div>
+    </div>
+
+    <script>
+        let img = document.getElementById("myimg");
+        let pos = 0;
+        let anim;
+
+        let startbtn = document.getElementById('start');
+        let pausebtn = document.getElementById('pause');
+        let contbtn = document.getElementById('continue');
+        let stopbtn = document.getElementById('stop');
+        let resetbtn = document.getElementById('reset');
+
+        function engine() {
+            pos++;
+            img.style.left = pos + "px";
+        }
+
+        function startAnim() {
+            anim = setInterval(engine, 5);
+            startbtn.style.display='none';
+            // pausebtn.style.display='none';
+            // stopbtn.style.display='none';
+        }
+
+        function pauseAnim() {
+            clearInterval(anim);
+            pausebtn.classList.remove("hide");
+            contbtn.classList.remove("hide");
+        }
+
+        function continueAnim() {
+            anim = setInterval(engine, -1);
+            // contbtn.style.display='none';
+            // pausebtn.style.display='none';
+        }
+
+        function stopAnim() {
+            clearInterval(anim);
+            pausebtn.classList.add("hide");
+            contbtn.classList.add("hide");
+            stopbtn.classList.add("hide");
+            resetbtn.classList.remove("hide");
+        }
+
+        function resetAnim() {
+            pos = 0;
+            img.style.left = "0px";
+            resetbtn.classList.add("hide");
+            startbtn.classList.remove("hide");
+        } 
+    </script>
+
+</body>
+</html>
