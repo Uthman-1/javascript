@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Guess Game</title>
+
+<style>
+body{
+    font-family: Arial;
+    text-align: center;
+    margin-top: 40px;
+    background: #0f766e;
+    color: white;
+}
+
+.box{
+    background: white;
+    width: 370px;
+    margin: auto;
+    padding: 20px;
+    border-radius: 10px;
+    color: black;
+}
+
+input{
+    width: 300px;
+    padding: 10px;
+    border: 2px solid #0f766e;
+    border-radius: 6px;
+}
+
+button{
+    width: 180px;
+    padding: 10px;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    margin-top: 10px;
+}
+
+.checkbtn{
+    background: #15803d;
+    color: white;
+}
+
+.restartbtn{
+    background: #b91c1c;
+    color: white;
+}
+
+#result{
+    height: 28px;
+    margin-top: 12px;
+}
+</style>
+
+</head>
+
+<body>
+
+    <a href="adjust-clock.html">stop watch</a>
+    <a href="agecalculator.html">age calculator</a>
+    <a href="clock.html">clock</a>
+    <a href="battery.html">battery</a>
+    <a href="my -guess-game2.html">Guess game</a>
+    <a href="uber.html">uber app</a>
+    <a href="normal-calc.html">simple calculator</a>
+    
+
+<div class="box">
+
+<h1>START GUESSING....</h1>
+
+<input id="myguess" placeholder="PLEASE ENTER A NUMBER BTW 1 AND 20">
+
+<button class="checkbtn" id="myguessbtn">CHECK</button>
+
+<h3 id="result"></h3>
+
+<h2 id="myscore">Score: 20</h2>
+
+<h1 id="highest">Highest Score: 0</h1>
+
+<button class="restartbtn" id="restartbtn">RESTART</button>
+
+</div>
+
+<script>
+
+
+
+let secretNumber = Math.trunc(Math.random()*20)+1;
+
+let checkButton = document.getElementById('myguessbtn');
+let restartButton = document.getElementById('restartbtn');
+let resultBox = document.getElementById('result');
+let scoreBox = document.getElementById('myscore');
+let highestBox = document.getElementById('highest');
+
+let score = 20;
+let highestScore = 0;
+
+
+function guessengine(){
+
+let guess = Number(document.getElementById('myguess').value);
+
+
+if (!guess){
+    resultBox.innerHTML = 'Type a number first';
+    resultBox.style.color = '#b91c1c';
+}
+
+else if (guess < 1 || guess > 20){
+    resultBox.innerHTML = 'Number must be between 1 and 20';
+    resultBox.style.color = 'green';
+}
+
+else if (isNaN(guess)){
+    resultBox.innerHTML = 'Only numbers are allowed';
+    resultBox.style.color = '#b91c1c';
+}
+
+
+else if (guess > secretNumber){
+    resultBox.innerHTML = 'Too high!';
+    resultBox.style.color = '#ea580c';
+    score--;
+}
+
+else if (guess < secretNumber){
+    resultBox.innerHTML = 'Too low!';
+    resultBox.style.color = '#15803d';
+    score--;
+}
+
+else{
+    resultBox.innerHTML =` Correct number is ${secretNumber}`;
+    resultBox.style.color = '#0f766e';
+    
+    document.querySelector('body').style.background = '#020617';
+    document.querySelector('body').style.color = 'white';
+
+    if (score > highestScore){
+        highestScore = score;
+        highestBox.innerHTML = `Highest Score: ${highestScore}`;
+    }
+}
+
+scoreBox.innerHTML = `Score: ${score}`;
+
+if (score <= 0){
+    resultBox.innerHTML = 'GAME OVER';
+    resultBox.style.color = '#b91c1c';
+    checkButton.disabled = true;
+}
+
+document.getElementById('myguess').value = "";
+document.getElementById('myguess').focus();
+
+}
+
+
+
+function restartgame(){
+
+score = 20;
+secretNumber = Math.trunc(Math.random()*20)+1;
+
+checkButton.disabled = false;
+
+resultBox.innerHTML = "";
+
+scoreBox.innerHTML = "Score: 20";
+
+document.querySelector('body').style.background = '#0f766e';
+document.querySelector('body').style.color = 'white';
+
+document.getElementById('myguess').focus();
+
+}
+
+
+
+checkButton.addEventListener('click', guessengine);
+
+restartButton.addEventListener('click', restartgame);
+
+</script>
+
+</body>
+</html>

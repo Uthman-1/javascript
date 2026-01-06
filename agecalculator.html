@@ -3,51 +3,106 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Retirement calculator</title>
+    <title>Retirement Calculator</title>
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+            background: #f2f2f2;
+        }
+
+        h2 {
+            color: darkblue;
+        }
+
+        a {
+            margin-right: 10px;
+            text-decoration: none;
+            color: purple;
+        }
+
+        label {
+            color: #0a5;
+            font-weight: bold;
+        }
+
+        input {
+            padding: 6px;
+            margin-bottom: 10px;
+        }
+
+        button {
+            padding: 8px 12px;
+            background: orange;
+            border: none;
+            cursor: pointer;
+        }
+
+        #result {
+            margin-top: 15px;
+            color: crimson;
+            font-size: 16px;
+        }
+    </style>
 </head>
+
 <body>
+    <a href="adjust-clock.html">stop watch</a>
+    <a href="agecalculator.html">age calculator</a>
+    <a href="clock.html">clock</a>
+    <a href="battery.html">battery</a>
+    <a href="my -guess-game2.html">Guess game</a>
+    <a href="uber.html">uber app</a>
+    <a href="normal-calc.html">simple calculator</a>
 
-<a href="agecalculator.html">age</a>
-<a href="all-calc.html">calculator</a>
-<a href="index.html">history</a>
 
-  
-    <h2>AGE RETIREMENT CALCULATOR</h2>
+<h2>AGE RETIREMENT CALCULATOR</h2>
 
+<label>Current Age:</label><br>
+<input type="number" id="currentAge" placeholder="e.g. 25"><br>
 
-        
-        
-        <label>Current Age:</label><br>
-        <input type="number" id="currentAge" placeholder="e.g. 25"><br>
-        <label>Retirement age:</label><br>
-        <input type="number" id="retireAge" placeholder="e.g. 60"><br>
-        <button onclick="calculateRetirement()">Calculate</button>
-        <p id="result"></p>
-    
+<label>Retirement Age:</label><br>
+<input type="number" id="retireAge" placeholder="e.g. 60"><br>
 
-    <script>
-    function calculateRetirement() {
-        let currentAge = document.getElementById('currentAge').value;
-        let retireAge = document.getElementById('retireAge').value;
-        let result = document.getElementById('result');
+<button onclick="calculateRetirement()">Calculate</button>
 
-        if (currentAge ==="" || retireAge === "") {
-            console.log("Please enter both ages.");
-            return; 
-        }
+<p id="result"></p>
 
-        currentAge = Number(currentAge);
-        retireAge = Number(retireAge);
+<script>
+function calculateRetirement() {
 
-        if (currentAge >= retireAge) {
-            result.innerHTML = "Lo retire alaye";
-            console.log("Lo retire alaye ");
-        } else {
-            let yearsLeft = retireAge - currentAge;
-           
-            console.log("You have " + yearsLeft + " years left until retirement.");
-        }
+    let currentAge = document.getElementById('currentAge').value;
+    let retireAge = document.getElementById('retireAge').value;
+    let result = document.getElementById('result');
+
+    if (currentAge === "" || retireAge === "") {
+        result.innerHTML = "Please enter both ages.";
+        console.log("Please enter both ages.");
+        return;
     }
+
+    currentAge = Number(currentAge);
+    retireAge = Number(retireAge);
+
+    if (currentAge >= retireAge) {
+
+        result.innerHTML = "Lo retire alaye";
+        console.log("Lo retire alaye");
+
+    } else {
+
+        let yearsLeft = retireAge - currentAge;
+
+        result.innerHTML =
+          "You have " + yearsLeft + " years left until retirement.";
+
+        console.log(
+          "You have " + yearsLeft + " years left until retirement."
+        );
+    }
+}
 </script>
+
 </body>
 </html>
